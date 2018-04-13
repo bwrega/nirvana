@@ -1,19 +1,16 @@
-package com.gene.bioinfo.ms.barcodePrinter.nirvana
+package com.realizationtime.nirvana.spock
 
-class Nirvana {
-	String firstName
-	String secondName
-	Integer age
+data class Nirvana(val firstName: String, val secondName: String, val age: Int) {
 
-	void validate() {
+	fun validate(): Unit {
 		if (age < 0) {
-			throw new NirvanaValidationException()
+			throw NirvanaValidationException()
 		}
 	}
 
-	boolean isEnlighted() {
+	fun isEnlighted(): Boolean {
 		return age > 666
 	}
 
-	static class NirvanaValidationException extends RuntimeException {}
+	class NirvanaValidationException : RuntimeException()
 }

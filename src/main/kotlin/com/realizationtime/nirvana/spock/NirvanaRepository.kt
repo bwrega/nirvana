@@ -1,14 +1,11 @@
-package com.gene.bioinfo.ms.barcodePrinter.nirvana
+package com.realizationtime.nirvana.spock
 
-class NirvanaRepository {
+open class NirvanaRepository {
 
-	Nirvana save(Nirvana nirvana) {
-		throw new NirvanaUnsupportedException()
+	open fun save(nirvana: Nirvana): Nirvana {
+		throw NirvanaUnsupportedException()
 	}
 
-	static class NirvanaUnsupportedException extends UnsupportedOperationException {
-		NirvanaUnsupportedException() {
-			super("Sorry, Curt!")
-		}
-	}
+	class NirvanaUnsupportedException: UnsupportedOperationException("Sorry, Curt!")
+
 }

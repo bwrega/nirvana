@@ -1,16 +1,11 @@
-package com.gene.bioinfo.ms.barcodePrinter.nirvana
+package com.realizationtime.nirvana.spock
 
-import groovy.transform.Canonical
+data class NirvanaApplicationService(val repository: NirvanaRepository) {
 
-@Canonical
-class NirvanaApplicationService {
-
-	final NirvanaRepository repository
-
-	Nirvana createNew(String firstName, String secondName, Integer age) {
-		Nirvana nirvana = new Nirvana(firstName: firstName, secondName: secondName, age: age)
+	fun createNew(firstName: String, secondName: String, age: Int): Nirvana {
+		val nirvana = Nirvana(firstName,secondName, age)
 		nirvana.validate()
-		return repository.save(nirvana)
+		return this.repository.save(nirvana)
 	}
 
 }
