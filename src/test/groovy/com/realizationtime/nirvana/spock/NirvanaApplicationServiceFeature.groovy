@@ -11,7 +11,7 @@ class NirvanaApplicationServiceFeature extends Specification {
 			String firstName, String secondName, Integer age
 	) {
 		given:
-		repository.save(_) >> { Nirvana nirvana -> nirvana}
+		repository.save(_) >> { Nirvana nirvana -> nirvana }
 
 		when:
 		Nirvana newEntity = service.createNew(firstName, secondName, age)
